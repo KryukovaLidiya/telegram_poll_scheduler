@@ -2,7 +2,6 @@ import os
 import json
 import sys
 import requests
-from apscheduler.schedulers.blocking import BlockingScheduler
 
 TOKEN   = os.getenv("BOT_TOKEN")
 CHAT_ID = os.getenv("CHAT_ID")

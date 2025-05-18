@@ -11,9 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Set up Docker
-        uses: docker/setup-docker@v2
-
       - name: Install Docker Compose
         run: |
           sudo apt-get update
@@ -23,8 +20,6 @@ jobs:
         run: docker-compose build
 
       - name: Send poll via Docker Compose
-        run: |
-          docker-compose run --rm pollbot
         env:
           BOT_TOKEN:      ${{ secrets.BOT_TOKEN }}
           CHAT_ID:        ${{ secrets.CHAT_ID }}
@@ -32,3 +27,4 @@ jobs:
           POLL_OPTIONS:   ${{ secrets.POLL_OPTIONS }}
           POLL_ANONYMOUS: ${{ secrets.POLL_ANONYMOUS }}
           POLL_MULTIPLE:  ${{ secrets.POLL_MULTIPLE }}
+        run: docker-compose run --rm pollbot

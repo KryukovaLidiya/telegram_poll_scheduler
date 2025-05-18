@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  pollbot:
+    build: .
+    container_name: telegram-poll-bot
+    environment:
+      - BOT_TOKEN=${BOT_TOKEN}
+      - CHAT_ID=${CHAT_ID}
+      - POLL_QUESTION=${POLL_QUESTION}
+      - POLL_OPTIONS=${POLL_OPTIONS}
+      - POLL_ANONYMOUS=${POLL_ANONYMOUS}
+      - POLL_MULTIPLE=${POLL_MULTIPLE}
+      - CRON_DAYS=${CRON_DAYS}
+      - CRON_HOUR=${CRON_HOUR}
+      - CRON_MIN=${CRON_MIN}
+    entrypoint: ["python", "send_poll.py"]
+    command: []

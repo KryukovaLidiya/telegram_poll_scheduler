@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 WORKDIR /app
 COPY . ./
 
-RUN pip install --no-cache-dir requests apscheduler
+RUN pip install --no-cache-dir requests
 
 ENTRYPOINT ["python", "send_poll.py"]
 CMD []
